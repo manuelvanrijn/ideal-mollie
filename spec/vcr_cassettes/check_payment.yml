@@ -1,0 +1,82 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://secure.mollie.nl:443/xml/ideal/?partnerid=123456&transaction_id=c9f93e5c2bd6c1e7c5bee5c5580c6f83&a=check&testmode=false
+    body:
+    headers:
+      user-agent:
+      - Ruby-IdealMollie
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Tue, 24 Jan 2012 13:02:18 GMT
+      content-type:
+      - text/xml
+      x-powered-by:
+      - PHP/5.2.6-1+lenny13
+      content-length:
+      - '151'
+    body: ! "<?xml version=\"1.0\" ?>\n<response>\n\t<order>\n\t\t<transaction_id>c9f93e5c2bd6c1e7c5bee5c5580c6f83</transaction_id>\n\t\t<amount>1000</amount>\n\t\t<currency>EUR</currency>\n\t\t<payed>false</payed>\n\t\t<message>This
+      iDEAL-order wasn't payed for, or was already checked by you. (We give payed=true
+      only once, for your protection)</message>\n\t\t<status>CheckedBefore</status>\n\t</order>\n\n</response>"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://secure.mollie.nl:443/xml/ideal/?partnerid=123456&transaction_id=482d599bbcc7795727650330ad65fe9b&a=check&testmode=false
+    body:
+    headers:
+      user-agent:
+      - Ruby-IdealMollie
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Tue, 24 Jan 2012 13:02:18 GMT
+      content-type:
+      - text/xml
+      x-powered-by:
+      - PHP/5.2.6-1+lenny13
+      content-length:
+      - '151'
+    body: ! "<?xml version=\"1.0\" ?>\n<response>\n\t<order>\n\t\t<transaction_id>482d599bbcc7795727650330ad65fe9b</transaction_id>\n\t\t<amount>1000</amount>\n\t\t<currency>EUR</currency>\n\t\t<payed>true</payed>\n\t\t<consumer>\n\t\t\t<consumerName>Hr
+      J Janssen</consumerName>\n\t\t\t<consumerAccount>P001234567</consumerAccount>\n\t\t\t<consumerCity>Amsterdam</consumerCity>\n\t\t</consumer>\n\t\t<message>This
+      iDEAL-order has successfuly been payed for, and this is the first time you check
+      it.</message>\n\t</order>\n\n</response>"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://secure.mollie.nl:443/xml/ideal/?partnerid=654321&transaction_id=482d599bbcc7795727650330ad65fe9b&a=check&testmode=false
+    body:
+    headers:
+      user-agent:
+      - Ruby-IdealMollie
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Tue, 24 Jan 2012 13:26:15 GMT
+      content-type:
+      - text/xml
+      x-powered-by:
+      - PHP/5.2.6-1+lenny13
+      content-length:
+      - '151'
+    body: ! "<?xml version=\"1.0\" ?>\n<response>\n\t<item type=\"error\">\n\t\t<errorcode>-10</errorcode>\n\t\t<message>This
+      is an unknown order.</message>\n\t</item>\n</response>"
+    http_version: '1.1'
