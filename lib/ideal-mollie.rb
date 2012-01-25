@@ -165,7 +165,7 @@ module IdealMollie
                                   :headers => {:user_agent => "Ruby-IdealMollie"},
                                   :ssl => {:verify => false}) do |builder|
         builder.adapter Faraday.default_adapter
-        builder.use Faraday::Response::ParseXml
+        builder.use FaradayMiddleware::ParseXml
       end
     end
   end

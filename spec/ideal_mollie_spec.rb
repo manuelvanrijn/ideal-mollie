@@ -4,7 +4,7 @@ describe IdealMollie do
   before(:each) do
     config = IdealMollie::Config
     config.test_mode = false
-    config.partner_id = 123456
+    config.partner_id = 987654
     config.report_url = "http://example.org/report"
     config.return_url = "http://example.org/return"
   end

@@ -4,14 +4,16 @@ describe IdealMollie::IdealException do
   context "#new_payment" do
     it "should throw exception when no config is set" do
       VCR.use_cassette("new_payment") do
+        config = IdealMollie::Config
+        config.reset!
         expect { IdealMollie.new_payment(1234, "exception test", "0031") }.
-          to raise_error(IdealMollie::IdealException, /This account does not exist or is suspended./)
+          to raise_error(IdealMollie::IdealException, /A fetch was issued without specification of 'partnerid'./)
       end
     end
     it "should throw an exception when a unknown account is specified" do
       config = IdealMollie::Config
       config.test_mode = false
-      config.partner_id = 123456
+      config.partner_id = 123465
       config.report_url = "http://example.org/report"
       config.return_url = "http://example.org/return"
 

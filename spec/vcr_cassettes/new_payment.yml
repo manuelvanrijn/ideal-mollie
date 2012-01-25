@@ -2,11 +2,69 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :post
-    uri: https://secure.mollie.nl:443/xml/ideal/?partnerid=123456&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&description=test&amount=1000&bank_id=0031&a=fetch&testmode=false
-    body: 
+    uri: https://secure.mollie.nl:443/xml/ideal?partnerid&reporturl&returnurl&description=exception%20test&amount=1234&bank_id=0031&a=fetch&testmode=false
+    body:
     headers:
       user-agent:
       - Ruby-IdealMollie
+      content-length:
+      - '0'
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Wed, 25 Jan 2012 11:15:39 GMT
+      content-type:
+      - text/xml
+      x-powered-by:
+      - PHP/5.2.6-1+lenny13
+      content-length:
+      - '181'
+    body: ! "<?xml version=\"1.0\" ?>\n<response>\n\t<item type=\"error\">\n\t\t<errorcode>-2</errorcode>\n\t\t<message>A
+      fetch was issued without specification of 'partnerid'.</message>\n\t</item>\n</response>"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://secure.mollie.nl:443/xml/ideal?partnerid=123465&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&description=exception%20test&amount=1234&bank_id=0031&a=fetch&testmode=false
+    body:
+    headers:
+      user-agent:
+      - Ruby-IdealMollie
+      content-length:
+      - '0'
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Wed, 25 Jan 2012 11:00:20 GMT
+      content-type:
+      - text/xml
+      x-powered-by:
+      - PHP/5.2.6-1+lenny13
+      content-length:
+      - '169'
+    body: ! "<?xml version=\"1.0\" ?>\n<response>\n\t<item type=\"error\">\n\t\t<errorcode>-2</errorcode>\n\t\t<message>This
+      account does not exist or is suspended.</message>\n\t</item>\n</response>"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://secure.mollie.nl:443/xml/ideal?partnerid=987654&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&description=test&amount=1000&bank_id=0031&a=fetch&testmode=false
+    body:
+    headers:
+      user-agent:
+      - Ruby-IdealMollie
+      content-length:
+      - '0'
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
@@ -25,30 +83,4 @@
     body: ! "<?xml version=\"1.0\" ?>\n<response>\n\t<order>\n\t\t<transaction_id>c9f93e5c2bd6c1e7c5bee5c5580c6f83</transaction_id>\n\t\t<amount>1000</amount>\n\t\t<currency>EUR</currency>\n\t\t<URL>https://www.abnamro.nl/nl/ideal/identification.do?randomizedstring=8433910909&amp;trxid=30000217841224</URL>\n\t\t<message>Your
       iDEAL-payment has successfully been setup. Your customer should visit the given
       URL to make the payment</message>\n\t</order>\n</response>"
-    http_version: '1.1'
-- !ruby/struct:VCR::HTTPInteraction
-  request: !ruby/struct:VCR::Request
-    method: :post
-    uri: https://secure.mollie.nl:443/xml/ideal/?partnerid=123456&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&description=exception%20test&amount=1234&bank_id=0031&a=fetch&testmode=false
-    body: 
-    headers:
-      user-agent:
-      - Ruby-IdealMollie
-  response: !ruby/struct:VCR::Response
-    status: !ruby/struct:VCR::ResponseStatus
-      code: 200
-      message: OK
-    headers:
-      server:
-      - nginx/0.7.67
-      date:
-      - Tue, 24 Jan 2012 13:18:45 GMT
-      content-type:
-      - text/xml
-      x-powered-by:
-      - PHP/5.2.6-1+lenny13
-      content-length:
-      - '169'
-    body: ! "<?xml version=\"1.0\" ?>\n<response>\n\t<item type=\"error\">\n\t\t<errorcode>-2</errorcode>\n\t\t<message>This
-      account does not exist or is suspended.</message>\n\t</item>\n</response>"
     http_version: '1.1'

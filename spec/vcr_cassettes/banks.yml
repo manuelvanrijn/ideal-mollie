@@ -2,11 +2,13 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :post
-    uri: https://secure.mollie.nl:443/xml/ideal/?a=banklist&testmode=false
+    uri: https://secure.mollie.nl:443/xml/ideal?a=banklist&testmode=false
     body:
     headers:
       user-agent:
       - Ruby-IdealMollie
+      content-length:
+      - '0'
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200

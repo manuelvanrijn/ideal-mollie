@@ -25,8 +25,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "simplecov"
 
   s.add_dependency "rake", "~> 0.9.0"
-  s.add_dependency "faraday", "~> 0.5.7"
-  s.add_dependency "faraday_middleware", "~> 0.3.2"
-  s.add_dependency "multi_xml", "~> 0.2.2"
-  s.add_dependency "nokogiri", "~> 1.4.1"
+  s.add_dependency "faraday", "~> 0.7.6"
+  s.add_dependency "faraday_middleware", "~> 0.8.1"
+  s.add_dependency "multi_xml", "~> 0.4.1"
+  s.add_dependency "nokogiri", "~> 1.5.0"
 end
