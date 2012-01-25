@@ -1,5 +1,5 @@
 
-# Ideal Mollie (ideal-mollie) ![Build Status](https://secure.travis-ci.org/technoweenie/faraday.png?branch=master) ![Dependency Status](https://gemnasium.com/manuelvanrijn/ideal-mollie.png?travis)
+# Ideal Mollie (ideal-mollie) ![Build Status](https://secure.travis-ci.org/manuelvanrijn/ideal-mollie.png?branch=master) ![Dependency Status](https://gemnasium.com/manuelvanrijn/ideal-mollie.png?travis)
 
 A simple Ruby implementation for handling iDeal transactions with the [Mollie API](https://www.mollie.nl/support/documentatie/betaaldiensten/ideal/).
 
