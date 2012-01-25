@@ -11,5 +11,4 @@ VCR.config do |c|
   c.stub_with :fakeweb
 end
 
-RSpec.configure do |config|
-end
+RSpec.configure

@@ -1,6 +1,7 @@
 module IdealMollie
   #
-  # Simpel extend on the Rails::Engine to add support for a new config section within the environment configs
+  # Simpel extend on the +Rails::Engine+ to add support for a new config section within
+  # the environment configs
   #
   # @example
   #   # /config/environments/development.rb
