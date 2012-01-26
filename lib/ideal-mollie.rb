@@ -41,20 +41,17 @@ module IdealMollie
   # @param [int] amount The amount of money to transfer (defined in cents).
   # @param [String] description The description of the payment on the bank transfer.
   # @param [String] bank_id The id of the bank selected from one of the supported banks.
+  # @param [String] return_url Optional override of the return url specified in the Config
   #
   # @example
   #   IdealMollie.new_order(1000, "Ordernumber #123: new gadget", "0031")
   #
+  # @example
+  #   IdealMollie.new_order(1000, "Ordernumber #123: new gadget", "0031", "http://override.url/controller/return_action")
   # @return [IdealMollie::Order] the +Order+.
-  def self.new_order(amount, description, bank_id)
-    response = IdealMollie.request("fetch", {
-      :partnerid => Config.partner_id,
-      :reporturl => Config.report_url,
-      :returnurl => Config.return_url,
-      :description => description,
-      :amount => amount,
-      :bank_id => bank_id
-    })
+  def self.new_order(amount, description, bank_id, return_url=nil)
+    params = new_order_params(amount, description, bank_id, return_url)
+    response = IdealMollie.request("fetch", params)
 
     IdealMollie::Order.new(response["order"])
   end
@@ -108,6 +105,28 @@ module IdealMollie
         raise IdealMollie::IdealException.new(error["errorcode"], error["message"], error["type"])
       end
       response
+    end
+
+    #
+    # Builds a +Hash+ with the parameters, that are needed for making a new order
+    # Makes sure the +return_url+ is set to the correct value
+    #
+    # @param [int] amount The amount of money to transfer (defined in cents).
+    # @param [String] description The description of the payment on the bank transfer.
+    # @param [String] bank_id The id of the bank selected from one of the supported banks.
+    # @param [String] return_url Optional override of the return url specified in the Config
+    #
+    # @return [Hash] the parameter +Hash+ for the new order.
+    def new_order_params(amount, description, bank_id, return_url=nil)
+      return_url = Config.return_url if return_url.nil?
+      {
+        :partnerid => Config.partner_id,
+        :reporturl => Config.report_url,
+        :returnurl => return_url,
+        :description => description,
+        :amount => amount,
+        :bank_id => bank_id
+      }
     end
 
     private

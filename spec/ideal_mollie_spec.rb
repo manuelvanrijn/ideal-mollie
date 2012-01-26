@@ -34,6 +34,13 @@ describe IdealMollie do
         order.message.should eq "Your iDEAL-payment has successfully been setup. Your customer should visit the given URL to make the payment"
       end
     end
+    it "should override the return url when specified" do
+      params = IdealMollie.new_order_params(1200, "test", "0031")
+      params[:returnurl].should eq "http://example.org/return"
+
+      params = IdealMollie.new_order_params(1200, "test", "0031", "http://another.example.org/return")
+      params[:returnurl].should eq "http://another.example.org/return"
+    end
   end
 
   context "#check_order" do
