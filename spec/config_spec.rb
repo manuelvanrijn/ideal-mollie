@@ -8,6 +8,7 @@ describe IdealMollie::Config do
     @config.report_url = "http://example.org/report"
     @config.return_url = "http://example.org/return"
   end
+
   describe "#reset!" do
     it "should reset the values" do
       @config.reset!
@@ -17,6 +18,7 @@ describe IdealMollie::Config do
       @config.return_url.should be_nil
     end
   end
+
   describe "#update!" do
     it "should update" do
       @config.test_mode = false
