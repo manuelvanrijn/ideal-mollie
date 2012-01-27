@@ -87,14 +87,11 @@ class TransactionsController < ApplicationController
       #   my_order.customer_city = response.customer_city
       #   my_order.save
     else
-      # canceled or re-checking?
-      if my_order.paid.nil?
-        # TODO: store the result information for the canceled payment
-        # For example:
-        #   my_order = MyOrder.find_by_transaction_id(transaction_id)
-        #   my_order.paid = false
-        #   my_order.save
-      end
+      # TODO: store the result information for the canceled payment
+      # For example:
+      #   my_order = MyOrder.find_by_transaction_id(transaction_id)
+      #   my_order.paid = false
+      #   my_order.save
     end
     render :nothing => true
   end
@@ -103,7 +100,7 @@ class TransactionsController < ApplicationController
     # TODO show the result
     # For example:
     #   my_order = MyOrderObject.find(id)
-    #if @my_order.paid
+    if @my_order.paid
       render :text => "Thank you for your payment."
     else
       render :text => "Transaction has been cancelled or couldn't complete"

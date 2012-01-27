@@ -67,7 +67,7 @@ module IdealMollie
   #   IdealMollie.check_order("4b99662febb42ce6f889d9c57f5cf3fa")
   #
   # @note Once a transaction is paid, only the next time you verify the
-  #   transaction will the value of +payed+ be +true+.
+  #   transaction will the value of +paid+ be +true+.
   #   Else it will be +false+.
   #
   # @return [IdealMollie::OrderResult] the +OrderResult+.
