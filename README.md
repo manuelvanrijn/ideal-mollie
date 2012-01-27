@@ -34,12 +34,13 @@ git clone --depth 1 git://github.com/manuelvanrijn/ideal-mollie.git ideal-mollie
 
 Add the following config parameters to your environment config file
 
-```yaml
+```
 config.ideal_mollie.partner_id = 123456
 config.ideal_mollie.report_url = "http://example.org/report"
 config.ideal_mollie.return_url = "http://example.org/return"
 config.ideal_mollie.test_mode = false
 ```
+
 ## Rails Example
 
 Below you will find a simple `TransactionController` and a view to display the bank selectbox. Note that this is just a very basic example.
@@ -75,23 +76,23 @@ class TransactionsController < ApplicationController
     transaction_id = params[:transaction_id]
     response = IdealMollie.check_order(transaction_id)
 
-    if response.payed
-      # TODO: store the result information for the payed payment
+    if response.paid
+      # TODO: store the result information for the paid payment
       # For example:
       #   my_order = MyOrder.find_by_transaction_id(transaction_id)
-      #   my_order.payed = true
-      #   my_order.payed_on = Time.now
+      #   my_order.paid = true
+      #   my_order.paid_on = Time.now
       #   my_order.customer_name = response.customer_name
       #   my_order.customer_account = response.customer_account
       #   my_order.customer_city = response.customer_city
       #   my_order.save
     else
       # canceled or re-checking?
-      if my_order.payed.nil?
+      if my_order.paid.nil?
         # TODO: store the result information for the canceled payment
         # For example:
         #   my_order = MyOrder.find_by_transaction_id(transaction_id)
-        #   my_order.payed = false
+        #   my_order.paid = false
         #   my_order.save
       end
     end
@@ -102,7 +103,7 @@ class TransactionsController < ApplicationController
     # TODO show the result
     # For example:
     #   my_order = MyOrderObject.find(id)
-    #if @my_order.payed
+    #if @my_order.paid
       render :text => "Thank you for your payment."
     else
       render :text => "Transaction has been cancelled or couldn't complete"

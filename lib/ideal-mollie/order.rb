@@ -4,10 +4,10 @@ module IdealMollie
   #
   # @example
   #   Order.new({
-  #     :transaction_id => "c9f93e5c2bd6c1e7c5bee5c5580c6f83"
+  #     :transaction_id => "c9f93e5c2bd6c1e7c5bee5c5580c6f83",
   #     :amount => "1000",
-  #     :currency => "EUR"
-  #     :url => "https://www.abnamro.nl/nl/ideal/identification.do?randomizedstring=8433910909&trxid=30000217841224"
+  #     :currency => "EUR",
+  #     :url => "https://www.abnamro.nl/nl/ideal/identification.do?randomizedstring=8433910909&trxid=30000217841224",
   #     :message => "Your iDEAL-payment has successfully been setup. Your customer should visit the given URL to make the payment"
   #   })
   #
