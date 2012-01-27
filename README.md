@@ -100,11 +100,11 @@ class TransactionsController < ApplicationController
     # TODO show the result
     # For example:
     #   my_order = MyOrderObject.find(id)
-    if @my_order.paid
-      render :text => "Thank you for your payment."
-    else
-      render :text => "Transaction has been cancelled or couldn't complete"
-    end
+    #   if my_order.paid
+    #     render :text => "Thank you for your payment."
+    #   else
+    #     render :text => "Transaction has been cancelled or couldn't complete"
+    #   end
   end
 end
 ```
