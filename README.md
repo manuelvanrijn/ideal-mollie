@@ -97,9 +97,10 @@ class TransactionsController < ApplicationController
   end
 
   def result
+    transaction_id = params[:transaction_id]
     # TODO show the result
     # For example:
-    #   my_order = MyOrderObject.find(id)
+    #   my_order = MyOrder.find_by_transaction_id(transaction_id)
     #   if my_order.paid
     #     render :text => "Thank you for your payment."
     #   else
