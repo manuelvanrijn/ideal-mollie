@@ -50,19 +50,19 @@ describe IdealMollie do
         order_result.transaction_id.should eq "c9f93e5c2bd6c1e7c5bee5c5580c6f83"
         order_result.amount.should eq 1000
         order_result.currency.should eq "EUR"
-        order_result.payed.should eq false
+        order_result.paid.should eq false
         order_result.message.should eq "This iDEAL-order wasn't payed for, or was already checked by you. (We give payed=true only once, for your protection)"
         order_result.status.should eq "CheckedBefore"
       end
     end
 
-    it "should mark the OrderResult as payed and contain the customer information when called by mollie" do
+    it "should mark the OrderResult as paid and contain the customer information when called by mollie" do
       VCR.use_cassette("check_order") do
         order_result = IdealMollie.check_order("482d599bbcc7795727650330ad65fe9b")
         order_result.transaction_id.should eq "482d599bbcc7795727650330ad65fe9b"
         order_result.amount.should eq 1000
         order_result.currency.should eq "EUR"
-        order_result.payed.should eq true
+        order_result.paid.should eq true
         order_result.message.should eq "This iDEAL-order has successfuly been payed for, and this is the first time you check it."
 
         order_result.customer_name.should eq "Hr J Janssen"

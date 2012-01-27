@@ -18,8 +18,8 @@ module IdealMollie
   #     :status => "Expired"
   #   })
   class OrderResult < Order
-    # @return [Boolean] Order was payed.
-    attr_accessor :payed
+    # @return [Boolean] Order was paid.
+    attr_accessor :paid
     # @return [String] The name of the customer.
     attr_accessor :customer_name
     # @return [String] The bankaccount number of the customer.
@@ -38,7 +38,7 @@ module IdealMollie
 
       super(values)
 
-      @payed = values["payed"] == "true" ? true : false if values.has_key?("payed")
+      @paid = values["payed"] == "true" ? true : false if values.has_key?("payed")
       @status = values["status"].to_s if values.has_key?("status")
 
       if values.has_key?("consumer")
