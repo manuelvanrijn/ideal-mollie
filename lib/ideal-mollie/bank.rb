@@ -4,7 +4,7 @@ module IdealMollie
   #
   # @example
   #   Bank.new({
-  #     :bank_id => "0031"
+  #     :bank_id => "0031",
   #     :bank_name => "ABN AMRO"
   #   })
   class Bank

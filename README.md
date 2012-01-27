@@ -34,12 +34,13 @@ git clone --depth 1 git://github.com/manuelvanrijn/ideal-mollie.git ideal-mollie
 
 Add the following config parameters to your environment config file
 
-```yaml
+```
 config.ideal_mollie.partner_id = 123456
 config.ideal_mollie.report_url = "http://example.org/report"
 config.ideal_mollie.return_url = "http://example.org/return"
 config.ideal_mollie.test_mode = false
 ```
+
 ## Rails Example
 
 Below you will find a simple `TransactionController` and a view to display the bank selectbox. Note that this is just a very basic example.
