@@ -1,5 +1,8 @@
 # Changelog
 
+- **30 January 2012**: version 0.0.5
+    - Added support for multiple profile's
+
 - **26 January 2012**: version 0.0.4
     - Changed property `payed` to `paid`
 

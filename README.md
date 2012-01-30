@@ -41,6 +41,12 @@ config.ideal_mollie.return_url = "http://example.org/return"
 config.ideal_mollie.test_mode = false
 ```
 
+Optionally you can add a profile_key if you have multiple profile's
+
+```
+config.ideal_mollie.profile_key = "123abc45"
+```
+
 ## Rails Example
 
 Below you will find a simple `TransactionController` and a view to display the bank selectbox. Note that this is just a very basic example.

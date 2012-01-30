@@ -119,7 +119,7 @@ module IdealMollie
     # @return [Hash] the parameter +Hash+ for the new order.
     def new_order_params(amount, description, bank_id, return_url=nil)
       return_url = Config.return_url if return_url.nil?
-      {
+      params = {
         :partnerid => Config.partner_id,
         :reporturl => Config.report_url,
         :returnurl => return_url,
@@ -127,6 +127,12 @@ module IdealMollie
         :amount => amount,
         :bank_id => bank_id
       }
+
+      unless Config.profile_key.nil?
+        params.merge!({:profile_key => Config.profile_key})
+      end
+
+      params
     end
 
     private
