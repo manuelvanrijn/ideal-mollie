@@ -3,9 +3,13 @@
 #
 module IdealMollie::Config
   class << self
-    # @return [int] You Mollie partner id.
-    # @note You can find you partner id here: https://www.mollie.nl/beheer/betaaldiensten/documentatie/ideal/
+    # @return [int] Your Mollie partner id.
+    # @note See: https://www.mollie.nl/beheer/betaaldiensten/documentatie/ideal/ for your partner id
     attr_accessor :partner_id
+    # @return [int] Your Mollie profile key
+    # @note The is a optional parameter. You only need this if you have multiple profiles
+    # @note See: https://www.mollie.nl/beheer/betaaldiensten/profielen/ for the list of profiles
+    attr_accessor :profile_key
     # @return [String] The url Mollie uses to report the status of the payment
     attr_accessor :report_url
     # @return [String] The url Mollie sends you to when a transaction is finished
@@ -18,6 +22,7 @@ module IdealMollie::Config
     def init!
       @defaults = {
         :@partner_id => nil,
+        :@profile_key => nil,
         :@report_url => nil,
         :@return_url => nil,
         :@test_mode => false
