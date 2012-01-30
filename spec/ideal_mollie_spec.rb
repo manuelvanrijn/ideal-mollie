@@ -2,11 +2,12 @@ require 'spec_helper'
 
 describe IdealMollie do
   before(:each) do
-    config = IdealMollie::Config
-    config.test_mode = false
-    config.partner_id = 987654
-    config.report_url = "http://example.org/report"
-    config.return_url = "http://example.org/return"
+    @config = IdealMollie::Config
+    @config.reset!
+    @config.test_mode = false
+    @config.partner_id = 987654
+    @config.report_url = "http://example.org/report"
+    @config.return_url = "http://example.org/return"
   end
 
   context "#banks" do
@@ -34,12 +35,35 @@ describe IdealMollie do
         order.message.should eq "Your iDEAL-payment has successfully been setup. Your customer should visit the given URL to make the payment"
       end
     end
+    it "should return a Order for profile_key with the correct values" do
+      @config.profile_key = "123abc45"
+      @config.update!
+      VCR.use_cassette("new_order") do
+        order = IdealMollie.new_order(1000, "test", "0031")
+        order.transaction_id.should eq "474ed7b2735cbe4d1f4fd4da23269263"
+        order.amount.should eq 1000
+        order.currency.should eq "EUR"
+        order.url.should eq "https://www.abnamro.nl/nl/ideal/identification.do?randomizedstring=6616737002&trxid=30000226032385"
+        order.message.should eq "Your iDEAL-payment has successfully been setup. Your customer should visit the given URL to make the payment"
+      end
+    end
     it "should override the return url when specified" do
       params = IdealMollie.new_order_params(1200, "test", "0031")
       params[:returnurl].should eq "http://example.org/return"
 
       params = IdealMollie.new_order_params(1200, "test", "0031", "http://another.example.org/return")
       params[:returnurl].should eq "http://another.example.org/return"
+    end
+    it "should not append the profile_key this isn't specified in the config" do
+      params = IdealMollie.new_order_params(1200, "test", "0031")
+      params.has_key?(:profile_key).should be_false
+    end
+    it "should append the profile_key if specified in the config" do
+      @config.profile_key = 12345
+      @config.update!
+
+      params = IdealMollie.new_order_params(1200, "test", "0031")
+      params.has_key?(:profile_key).should be_true
     end
   end
 
