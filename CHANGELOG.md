@@ -1,5 +1,8 @@
 # Changelog
 
+- **30 January 2012**: version 0.0.6
+    - Changed the URL to a CONST for testing on local sinatra server (coming soon)
+
 - **30 January 2012**: version 0.0.5
     - Added support for multiple profile's
 

@@ -15,6 +15,9 @@ require "ideal-mollie/order_result"
 # IdealMollie Module
 #
 module IdealMollie
+  # Mollie API url
+  MOLLIE_URL = "https://secure.mollie.nl/xml/ideal"
+
   #
   # List of supported banks.
   #
@@ -138,7 +141,7 @@ module IdealMollie
     private
 
     def connection
-      @connection ||= Faraday::Connection.new(:url => "https://secure.mollie.nl/xml/ideal",
+      @connection ||= Faraday::Connection.new(:url => IdealMollie::MOLLIE_URL,
                                   :headers => {:user_agent => "Ruby-IdealMollie"},
                                   :ssl => {:verify => false}) do |builder|
         builder.adapter Faraday.default_adapter
