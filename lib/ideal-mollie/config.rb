@@ -6,7 +6,7 @@ module IdealMollie::Config
     # @return [int] Your Mollie partner id.
     # @note See: https://www.mollie.nl/beheer/betaaldiensten/documentatie/ideal/ for your partner id
     attr_accessor :partner_id
-    # @return [int] Your Mollie profile key
+    # @return [String] Your Mollie profile key
     # @note The is a optional parameter. You only need this if you have multiple profiles
     # @note See: https://www.mollie.nl/beheer/betaaldiensten/profielen/ for the list of profiles
     attr_accessor :profile_key
