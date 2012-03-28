@@ -6,9 +6,9 @@ require 'bundler/setup'
 require 'vcr'
 require 'ideal-mollie'
 
-VCR.config do |c|
+VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
-  c.stub_with :fakeweb
+  c.hook_into :fakeweb
 end
 
 RSpec.configure
