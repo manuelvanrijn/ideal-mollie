@@ -127,7 +127,7 @@ end
 
 ## Changelog
 
-A detailed overview of can be found in the [CHANGELOG](https://github.com/manuelvanrijn/ideal-mollie/blob/master/CHANGELOG.md).
+A detailed overview can be found in the [CHANGELOG](https://github.com/manuelvanrijn/ideal-mollie/blob/master/CHANGELOG.md).
 
 ## Copyright
 
