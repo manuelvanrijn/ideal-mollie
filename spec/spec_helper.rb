@@ -1,5 +1,7 @@
-require 'simplecov'
-SimpleCov.start
+if ENV['TRAVIS_BUILD'].nil?
+  require 'simplecov'
+  SimpleCov.start
+end
 
 require 'rubygems'
 require 'bundler/setup'
