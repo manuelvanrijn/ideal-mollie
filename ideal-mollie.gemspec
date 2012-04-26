@@ -19,14 +19,14 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency "rspec"
-  s.add_development_dependency "vcr", "~> 2.0.0"
+  s.add_development_dependency "vcr"
   s.add_development_dependency "fakeweb"
   s.add_development_dependency "yard"
   s.add_development_dependency "redcarpet"
   s.add_development_dependency "simplecov"
 
   s.add_dependency "rake", "~> 0.9.0"
-  s.add_dependency "faraday", "0.8.0.rc2"
+  s.add_dependency "faraday", "~> 0.8.0"
   s.add_dependency "faraday_middleware", "~> 0.8.1"
   s.add_dependency "multi_xml", "~> 0.4.1"
   s.add_dependency "nokogiri", "~> 1.5.0"
