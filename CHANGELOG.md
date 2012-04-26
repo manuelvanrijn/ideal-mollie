@@ -1,9 +1,12 @@
 # Changelog
 
 - ** TBA **: version 0.0.7
+
+- **26 April 2012**: version 0.0.7
     - Upgraded faraday to 0.8
     - Upgraded vcr to 2.1
     - Recorded the vcr cassettes to match the 2.1 format
+	- Removed jruby dependency
 
 - **30 January 2012**: version 0.0.6
     - Changed the URL to a CONST for testing on local sinatra server (coming soon)
