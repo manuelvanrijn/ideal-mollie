@@ -1,10 +1,13 @@
 # Changelog
 
-- ** TBA **: version 0.0.7
+- ** TBA **: version 0.0.9
+
+- **9 May 2012**: version 0.0.8
+	- Upgraded dependency multi_xml to 0.5
 
 - **26 April 2012**: version 0.0.7
-    - Upgraded faraday to 0.8
-    - Upgraded vcr to 2.1
+    - Upgraded dependency faraday to 0.8
+    - Upgraded dependency vcr to 2.1
     - Recorded the vcr cassettes to match the 2.1 format
 	- Removed jruby dependency
 
@@ -23,7 +26,7 @@
     - Now you can override the return_url within the controller
 
 - **25 January 2012**: version 0.0.2
-    - Dependecies fixed
+    - Dependencies fixed
     - Tests fixed
     - Automation with Travis and Gemnasium
 
