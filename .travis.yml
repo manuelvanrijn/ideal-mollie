@@ -6,7 +6,3 @@ rvm:
 env:
   - TRAVIS_BUILD=true
 script: "bundle exec rake spec"
-notifications:
-  recipients:
-    - manuel@manuelles.nl
-    
