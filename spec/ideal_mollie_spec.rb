@@ -14,7 +14,7 @@ describe IdealMollie do
     it "returns an array with banks" do
       VCR.use_cassette("banks") do
         banks = IdealMollie.banks
-        banks.class.is_a?Array.should be_true
+        banks.is_a?(Array).should be_true
         banks.count > 0
 
         bank = banks.first
