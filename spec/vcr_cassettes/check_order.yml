@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://secure.mollie.nl/xml/ideal?partnerid=987654&transaction_id=c9f93e5c2bd6c1e7c5bee5c5580c6f83&a=check&testmode=false
+    uri: https://secure.mollie.nl/xml/ideal?a=check&partnerid=987654&testmode=false&transaction_id=c9f93e5c2bd6c1e7c5bee5c5580c6f83
     body:
       encoding: US-ASCII
       string: ''
@@ -41,7 +41,7 @@ http_interactions:
   recorded_at: Wed, 28 Mar 2012 11:49:24 GMT
 - request:
     method: post
-    uri: https://secure.mollie.nl/xml/ideal?partnerid=987654&transaction_id=482d599bbcc7795727650330ad65fe9b&a=check&testmode=false
+    uri: https://secure.mollie.nl/xml/ideal?a=check&partnerid=987654&testmode=false&transaction_id=482d599bbcc7795727650330ad65fe9b
     body:
       encoding: US-ASCII
       string: ''
@@ -81,7 +81,7 @@ http_interactions:
   recorded_at: Wed, 28 Mar 2012 11:52:09 GMT
 - request:
     method: post
-    uri: https://secure.mollie.nl/xml/ideal?partnerid=654321&transaction_id=482d599bbcc7795727650330ad65fe9b&a=check&testmode=false
+    uri: https://secure.mollie.nl/xml/ideal?a=check&partnerid=654321&testmode=false&transaction_id=482d599bbcc7795727650330ad65fe9b
     body:
       encoding: US-ASCII
       string: ''

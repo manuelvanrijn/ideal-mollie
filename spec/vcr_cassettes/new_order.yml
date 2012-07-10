@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://secure.mollie.nl/xml/ideal?partnerid=987654&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&description=test&amount=1000&bank_id=0031&a=fetch&testmode=false
+    uri: https://secure.mollie.nl/xml/ideal?a=fetch&amount=1000&bank_id=0031&description=test&partnerid=987654&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&testmode=false
     body:
       encoding: US-ASCII
       string: ''
@@ -41,7 +41,7 @@ http_interactions:
   recorded_at: Wed, 28 Mar 2012 11:43:50 GMT
 - request:
     method: post
-    uri: https://secure.mollie.nl/xml/ideal?partnerid=987654&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&description=test&amount=1000&bank_id=0031&profile_key=123abc45&a=fetch&testmode=false
+    uri: https://secure.mollie.nl/xml/ideal?a=fetch&amount=1000&bank_id=0031&description=test&partnerid=987654&profile_key=123abc45&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&testmode=false
     body:
       encoding: US-ASCII
       string: ''
@@ -80,7 +80,7 @@ http_interactions:
   recorded_at: Wed, 28 Mar 2012 11:47:09 GMT
 - request:
     method: post
-    uri: https://secure.mollie.nl/xml/ideal?partnerid&reporturl&returnurl&description=exception+test&amount=1234&bank_id=0031&a=fetch&testmode=false
+    uri: https://secure.mollie.nl/xml/ideal?a=fetch&amount=1234&bank_id=0031&description=exception+test&partnerid&reporturl&returnurl&testmode=false
     body:
       encoding: US-ASCII
       string: ''
@@ -118,7 +118,7 @@ http_interactions:
   recorded_at: Wed, 28 Mar 2012 11:54:10 GMT
 - request:
     method: post
-    uri: https://secure.mollie.nl/xml/ideal?partnerid=123465&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&description=exception+test&amount=1234&bank_id=0031&a=fetch&testmode=false
+    uri: https://secure.mollie.nl/xml/ideal?a=fetch&amount=1234&bank_id=0031&description=exception+test&partnerid=123465&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&testmode=false
     body:
       encoding: US-ASCII
       string: ''
@@ -156,7 +156,7 @@ http_interactions:
   recorded_at: Wed, 28 Mar 2012 11:54:10 GMT
 - request:
     method: post
-    uri: https://secure.mollie.nl/xml/ideal?partnerid=123456&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&description=exception+test&amount=1234&bank_id=0031&profile_key=00000000&a=fetch&testmode=false
+    uri: https://secure.mollie.nl/xml/ideal?a=fetch&amount=1234&bank_id=0031&description=exception+test&partnerid=123456&profile_key=00000000&reporturl=http%3A%2F%2Fexample.org%2Freport&returnurl=http%3A%2F%2Fexample.org%2Freturn&testmode=false
     body:
       encoding: US-ASCII
       string: ''
