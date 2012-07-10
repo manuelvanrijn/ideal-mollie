@@ -98,7 +98,6 @@ module IdealMollie
     def request(action, params={})
       params.merge!(:a => action)
       params.merge!(:testmode => Config.test_mode)
-      params = params.sort_by { |k, v| k }
       request = connection.post do |req|
         req.url("", params)
       end

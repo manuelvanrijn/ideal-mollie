@@ -3,7 +3,7 @@ require 'spec_helper'
 describe IdealMollie::IdealException do
   context "#new_order" do
     it "should throw exception when no config is set" do
-      VCR.use_cassette("new_order") do
+      VCR.use_cassette("new_order", :match_requests_on => [:ignore_query_param_ordering]) do
         config = IdealMollie::Config
         config.reset!
         expect { IdealMollie.new_order(1234, "exception test", "0031") }.
@@ -18,7 +18,7 @@ describe IdealMollie::IdealException do
       config.report_url = "http://example.org/report"
       config.return_url = "http://example.org/return"
 
-      VCR.use_cassette("new_order") do
+      VCR.use_cassette("new_order", :match_requests_on => [:ignore_query_param_ordering]) do
         expect { IdealMollie.new_order(1234, "exception test", "0031") }.
           to raise_error(IdealMollie::IdealException, /This account does not exist or is suspended./)
       end
@@ -32,7 +32,7 @@ describe IdealMollie::IdealException do
       config.report_url = "http://example.org/report"
       config.return_url = "http://example.org/return"
 
-      VCR.use_cassette("new_order") do
+      VCR.use_cassette("new_order", :match_requests_on => [:ignore_query_param_ordering]) do
         expect { IdealMollie.new_order(1234, "exception test", "0031") }.
           to raise_error(IdealMollie::IdealException, /A fetch was issued for an unknown or inactive profile./)
       end
@@ -47,7 +47,7 @@ describe IdealMollie::IdealException do
       config.report_url = "http://example.org/report"
       config.return_url = "http://example.org/return"
 
-      VCR.use_cassette("check_order") do
+      VCR.use_cassette("check_order", :match_requests_on => [:ignore_query_param_ordering]) do
         expect { IdealMollie.check_order("482d599bbcc7795727650330ad65fe9b") }.
           to raise_error(IdealMollie::IdealException, /This is an unknown order./)
       end
