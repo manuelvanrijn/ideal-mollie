@@ -12,7 +12,7 @@ describe IdealMollie do
 
   context "#banks" do
     it "returns an array with banks" do
-      VCR.use_cassette("banks") do
+      VCR.use_cassette("banks", :match_requests_on => [:ignore_query_param_ordering]) do
         banks = IdealMollie.banks
         banks.is_a?(Array).should be_true
         banks.count > 0
@@ -26,7 +26,7 @@ describe IdealMollie do
 
   context "#new_order" do
     it "should return a Order with the correct values" do
-      VCR.use_cassette("new_order") do
+      VCR.use_cassette("new_order", :match_requests_on => [:ignore_query_param_ordering]) do
         order = IdealMollie.new_order(1000, "test", "0031")
         order.transaction_id.should eq "c9f93e5c2bd6c1e7c5bee5c5580c6f83"
         order.amount.should eq 1000
@@ -38,7 +38,7 @@ describe IdealMollie do
     it "should return a Order for profile_key with the correct values" do
       @config.profile_key = "123abc45"
       @config.update!
-      VCR.use_cassette("new_order") do
+      VCR.use_cassette("new_order", :match_requests_on => [:ignore_query_param_ordering]) do
         order = IdealMollie.new_order(1000, "test", "0031")
         order.transaction_id.should eq "474ed7b2735cbe4d1f4fd4da23269263"
         order.amount.should eq 1000
@@ -69,7 +69,7 @@ describe IdealMollie do
 
   context "#check_order" do
     it "should return a OrderResult with the correct values" do
-      VCR.use_cassette("check_order") do
+      VCR.use_cassette("check_order", :match_requests_on => [:ignore_query_param_ordering]) do
         order_result = IdealMollie.check_order("c9f93e5c2bd6c1e7c5bee5c5580c6f83")
         order_result.transaction_id.should eq "c9f93e5c2bd6c1e7c5bee5c5580c6f83"
         order_result.amount.should eq 1000
@@ -81,7 +81,7 @@ describe IdealMollie do
     end
 
     it "should mark the OrderResult as paid and contain the customer information when called by mollie" do
-      VCR.use_cassette("check_order") do
+      VCR.use_cassette("check_order", :match_requests_on => [:ignore_query_param_ordering]) do
         order_result = IdealMollie.check_order("482d599bbcc7795727650330ad65fe9b")
         order_result.transaction_id.should eq "482d599bbcc7795727650330ad65fe9b"
         order_result.amount.should eq 1000
