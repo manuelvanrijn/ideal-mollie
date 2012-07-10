@@ -1,6 +1,9 @@
 # Changelog
 
-- ** TBA **: version 0.0.9
+- **10 July 2012**: version 1.0.0
+    - Released version 1.0
+    - Added more platforms to test on Travis CI
+    - Fixed spec for latets version of RSpec (2.11.0)
 
 - **9 May 2012**: version 0.0.8
 	- Upgraded dependency multi_xml to 0.5
