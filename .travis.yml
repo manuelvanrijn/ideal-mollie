@@ -7,7 +7,13 @@ rvm:
   - jruby-19mode
   - rbx-18mode
   - rbx-19mode
+  - ruby-head
+  - jruby-head
   - ree
 env:
   - TRAVIS_BUILD=true
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head
 script: "bundle exec rake spec"
