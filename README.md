@@ -132,3 +132,5 @@ A detailed overview can be found in the [CHANGELOG](https://github.com/manuelvan
 ## Copyright
 
 Copyright © 2012 Manuel van Rijn. See [LICENSE](https://github.com/manuelvanrijn/ideal-mollie/blob/master/LICENSE.md) for further details.
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/c3b01a288913d7f68d75d2fd837d9dcd "githalytics.com")](http://githalytics.com/manuelvanrijn/ideal-mollie)
