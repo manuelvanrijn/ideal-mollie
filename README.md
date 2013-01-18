@@ -1,5 +1,6 @@
-# Ideal Mollie (ideal-mollie) [![Build Status](https://secure.travis-ci.org/manuelvanrijn/ideal-mollie.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/manuelvanrijn/ideal-mollie.png)][gemnasium]
+# Ideal Mollie (ideal-mollie) [![Gem Version](https://badge.fury.io/rb/ideal-mollie.png)][gemversion] [![Build Status](https://secure.travis-ci.org/manuelvanrijn/ideal-mollie.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/manuelvanrijn/ideal-mollie.png)][gemnasium]
 
+[gemversion]: http://badge.fury.io/rb/ideal-mollie
 [travis]: http://travis-ci.org/manuelvanrijn/ideal-mollie
 [gemnasium]: https://gemnasium.com/manuelvanrijn/ideal-mollie
 
