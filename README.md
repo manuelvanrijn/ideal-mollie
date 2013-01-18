@@ -1,8 +1,7 @@
-# Ideal Mollie (ideal-mollie) [![Gem Version](https://badge.fury.io/rb/ideal-mollie.png)][gemversion] [![Build Status](https://secure.travis-ci.org/manuelvanrijn/ideal-mollie.png?branch=master)][travis] [![Dependency Status](https://gemnasium.com/manuelvanrijn/ideal-mollie.png)][gemnasium]
+# Ideal Mollie (ideal-mollie) [![Gem Version](https://badge.fury.io/rb/ideal-mollie.png)][gemversion] [![Build Status](https://secure.travis-ci.org/manuelvanrijn/ideal-mollie.png?branch=master)][travis]
 
 [gemversion]: http://badge.fury.io/rb/ideal-mollie
 [travis]: http://travis-ci.org/manuelvanrijn/ideal-mollie
-[gemnasium]: https://gemnasium.com/manuelvanrijn/ideal-mollie
 
 A simple Ruby implementation for handling iDeal transactions with the [Mollie API](https://www.mollie.nl/support/documentatie/betaaldiensten/ideal/).
 
