@@ -1,5 +1,8 @@
 # Changelog
 
+- **11 Februari 2012**: version 1.0.2
+    - Fix for verify sha512
+
 - **10 July 2012**: version 1.0.0
     - Released version 1.0
     - Added more platforms to test on Travis CI
