@@ -1,11 +1,14 @@
+require 'coveralls'
 if ENV['TRAVIS_BUILD'].nil?
+  # don't run simplecov on travis-ci
   require 'simplecov'
-  require 'coveralls'
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
     SimpleCov::Formatter::HTMLFormatter,
     Coveralls::SimpleCov::Formatter
   ]
   SimpleCov.start
+else
+  Coveralls.wear!
 end
 
 require 'rubygems'
