@@ -22,13 +22,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency "vcr"
   s.add_development_dependency "fakeweb"
   s.add_development_dependency "coveralls"
-
-  # skipped gems on travis ci
-  if ENV['TRAVIS_BUILD'].nil?
-    s.add_development_dependency "simplecov"
-    s.add_development_dependency "yard"
-    s.add_development_dependency "redcarpet"
-  end
+  s.add_development_dependency "simplecov"
+  s.add_development_dependency "yard"
+  s.add_development_dependency "redcarpet"
 
   s.add_dependency "rake", "> 0.9.0"
   s.add_dependency "faraday", "~> 0.8.0"

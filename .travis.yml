@@ -8,8 +8,6 @@ rvm:
   - ruby-head
   - jruby-head
   - ree
-env:
-  - TRAVIS_BUILD=true
 matrix:
   allow_failures:
     - rvm: ruby-head
