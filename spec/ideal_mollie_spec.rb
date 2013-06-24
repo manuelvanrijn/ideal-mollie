@@ -72,6 +72,60 @@ describe IdealMollie do
       params = IdealMollie.new_order_params(1200, "test", "0031", nil, "http://another.example.org/report")
       params[:reporturl].should eq "http://another.example.org/report"
     end
+    it "should accept hash as arguments for new_order" do
+      VCR.use_cassette("new_order", :match_requests_on => [:ignore_query_param_ordering]) do
+        order = IdealMollie.new_order(amount: 1000, description: "test", bank_id: "0031")
+        order.amount.should eq 1000
+      end
+    end
+    it "should accept changing the report_url in the hash for new_order" do
+      VCR.use_cassette("new_order", :match_requests_on => [:ignore_query_param_ordering]) do
+        # should recieve
+        params = {
+          :partnerid => 987654,
+          :reporturl => "http://another.example.org/report",
+          :returnurl => "http://example.org/return",
+          :description => "test",
+          :amount => 1000,
+          :bank_id => "0031"
+        }
+        # dummy result
+        result = {}
+        result["order"] = nil
+
+        IdealMollie.should_receive(:request).with("fetch", params).and_return(result)
+
+        order = IdealMollie.new_order(
+          amount: 1000,
+          description: "test",
+          bank_id: "0031",
+          report_url: "http://another.example.org/report")
+      end
+    end
+    it "should accept changing the return_url in the hash for new_order" do
+      VCR.use_cassette("new_order", :match_requests_on => [:ignore_query_param_ordering]) do
+        # should recieve
+        params = {
+          :partnerid => 987654,
+          :reporturl => "http://example.org/report",
+          :returnurl => "http://another.example.org/return",
+          :description => "test",
+          :amount => 1000,
+          :bank_id => "0031"
+        }
+        # dummy result
+        result = {}
+        result["order"] = nil
+
+        IdealMollie.should_receive(:request).with("fetch", params).and_return(result)
+
+        order = IdealMollie.new_order(
+          amount: 1000,
+          description: "test",
+          bank_id: "0031",
+          return_url: "http://another.example.org/return")
+      end
+    end
   end
 
   context "#check_order" do

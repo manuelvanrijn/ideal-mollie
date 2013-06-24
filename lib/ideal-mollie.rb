@@ -41,19 +41,38 @@ module IdealMollie
   #
   # @visibility public
   #
-  # @param [int] amount The amount of money to transfer (defined in cents).
+  # @param [Hash or int] hash_or_amount The amount of money to transfer (defined in cents) or a Hash.
   # @param [String] description The description of the payment on the bank transfer.
   # @param [String] bank_id The id of the bank selected from one of the supported banks.
   # @param [String] return_url Optional override of the return url specified in the Config
   #
   # @example
-  #   IdealMollie.new_order(1000, "Ordernumber #123: new gadget", "0031")
+  #   # as a Hash
+  #   IdealMollie.new_order(amount: 1000, description: "Ordernumber #123: new gadget", bank_id: "0031")
+  #   IdealMollie.new_order(
+  #     amount: 1000,
+  #     description: "Ordernumber #123: new gadget",
+  #     bank_id: "0031",
+  #     return_url: "http://override.url/controller/return_action",
+  #     report_url: "http://override.url/controller/report_action"
+  #   )
   #
-  # @example
+  #   # as arguments
+  #   IdealMollie.new_order(1000, "Ordernumber #123: new gadget", "0031")
   #   IdealMollie.new_order(1000, "Ordernumber #123: new gadget", "0031", "http://override.url/controller/return_action")
+  #   IdealMollie.new_order(1000, "Ordernumber #123: new gadget", "0031", "http://override.url/controller/return_action", "http://override.url/controller/report_action")
+  #
   # @return [IdealMollie::Order] the +Order+.
-  def self.new_order(amount, description, bank_id, return_url=nil)
-    params = new_order_params(amount, description, bank_id, return_url)
+  def self.new_order(hash_or_amount, description=nil, bank_id=nil, return_url=nil, report_url=nil)
+    amount = hash_or_amount
+    if hash_or_amount.is_a?(Hash)
+      amount = hash_or_amount[:amount]
+      description = hash_or_amount[:description]
+      bank_id = hash_or_amount[:bank_id]
+      return_url = hash_or_amount[:return_url] if hash_or_amount.has_key?(:return_url)
+      report_url = hash_or_amount[:report_url] if hash_or_amount.has_key?(:report_url)
+    end
+    params = new_order_params(amount, description, bank_id, return_url, report_url)
     response = IdealMollie.request("fetch", params)
 
     IdealMollie::Order.new(response["order"])
@@ -123,6 +142,7 @@ module IdealMollie
     def new_order_params(amount, description, bank_id, return_url=nil, report_url=nil)
       return_url = Config.return_url if return_url.nil?
       report_url = Config.report_url if report_url.nil?
+
       params = {
         :partnerid => Config.partner_id,
         :reporturl => report_url,
