@@ -29,5 +29,5 @@ Gem::Specification.new do |s|
   s.add_dependency "faraday", "~> 0.8.0"
   s.add_dependency "faraday_middleware", "~> 0.9.0"
   s.add_dependency "multi_xml", "~> 0.5.2"
-  s.add_dependency "nokogiri", "~> 1.5.0"
+  s.add_dependency "nokogiri", "~> 1.5"
 end
