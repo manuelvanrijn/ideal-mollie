@@ -65,6 +65,13 @@ describe IdealMollie do
       params = IdealMollie.new_order_params(1200, "test", "0031")
       params.has_key?(:profile_key).should be_true
     end
+    it "should override the report url when specified" do
+      params = IdealMollie.new_order_params(1200, "test", "0031")
+      params[:reporturl].should eq "http://example.org/report"
+
+      params = IdealMollie.new_order_params(1200, "test", "0031", nil, "http://another.example.org/report")
+      params[:reporturl].should eq "http://another.example.org/report"
+    end
   end
 
   context "#check_order" do

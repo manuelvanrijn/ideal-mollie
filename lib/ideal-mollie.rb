@@ -120,11 +120,12 @@ module IdealMollie
     # @param [String] return_url Optional override of the return url specified in the Config
     #
     # @return [Hash] the parameter +Hash+ for the new order.
-    def new_order_params(amount, description, bank_id, return_url=nil)
+    def new_order_params(amount, description, bank_id, return_url=nil, report_url=nil)
       return_url = Config.return_url if return_url.nil?
+      report_url = Config.report_url if report_url.nil?
       params = {
         :partnerid => Config.partner_id,
-        :reporturl => Config.report_url,
+        :reporturl => report_url,
         :returnurl => return_url,
         :description => description,
         :amount => amount,
