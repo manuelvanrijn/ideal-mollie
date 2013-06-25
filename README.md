@@ -1,4 +1,7 @@
-# Ideal Mollie (ideal-mollie) [![Gem Version](https://badge.fury.io/rb/ideal-mollie.png)][gemversion] [![Build Status](https://secure.travis-ci.org/manuelvanrijn/ideal-mollie.png?branch=master)][travis] [![Coverage Status](https://coveralls.io/repos/manuelvanrijn/ideal-mollie/badge.png?branch=coveralls)][coveralls]
+# Ideal Mollie (ideal-mollie) 
+[![Gem Version](https://badge.fury.io/rb/ideal-mollie.png)][gemversion] 
+[![Build Status](https://secure.travis-ci.org/manuelvanrijn/ideal-mollie.png?branch=master)][travis] 
+[![Coverage Status](https://coveralls.io/repos/manuelvanrijn/ideal-mollie/badge.png?branch=coveralls)][coveralls]
 
 [gemversion]: http://badge.fury.io/rb/ideal-mollie
 [travis]: http://travis-ci.org/manuelvanrijn/ideal-mollie
