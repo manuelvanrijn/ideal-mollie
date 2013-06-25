@@ -5,7 +5,6 @@ rvm:
   - 2.0.0
   - ruby-head
   - jruby-head
-  - ree
 matrix:
   allow_failures:
     - rvm: ruby-head
