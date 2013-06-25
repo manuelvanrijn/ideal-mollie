@@ -1,5 +1,9 @@
 # Changelog
 
+- **TBA**: version 1.0.3
+    - Make Nokogiri version less restrictive by @tijmenb
+    - Added different argument passing for new_order
+
 - **11 Februari 2012**: version 1.0.2
     - Fix for verify sha512
 

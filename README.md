@@ -14,13 +14,13 @@ Here you can find the [Documentation](http://rubydoc.info/github/manuelvanrijn/i
 
 To install the gem you could execute
 
-```
+```ruby
 sudo gem install ideal-mollie
 ```
 
 Or you could add the gem into your `Gemfile`.
 
-```
+```ruby
 gem 'ideal-mollie'
 ```
 
@@ -35,7 +35,7 @@ git clone --depth 1 git://github.com/manuelvanrijn/ideal-mollie.git ideal-mollie
 
 Add the following config parameters to your environment config file
 
-```
+```ruby
 config.ideal_mollie.partner_id = 123456
 config.ideal_mollie.report_url = "http://example.org/report"
 config.ideal_mollie.return_url = "http://example.org/return"
@@ -44,7 +44,7 @@ config.ideal_mollie.test_mode = false
 
 Optionally you can add a profile_key if you have multiple profile's
 
-```
+```ruby
 config.ideal_mollie.profile_key = "123abc45"
 ```
 
@@ -66,7 +66,19 @@ class TransactionsController < ApplicationController
     bank_id = params[:bank_id]
 
     # 10,00 EUR
-    request = IdealMollie.new_order(1000, 'some payment description', bank_id)
+    request = IdealMollie.new_order(
+      amount: 1000,
+      description: 'some payment description',
+      bank_id: bank_id
+    )
+    # Optionally you could override the report_url and return_url here, by doing:
+    # request = IdealMollie.new_order(
+    #   amount: 1000,
+    #   description: 'some payment description',
+    #   bank_id: bank_id,
+    #   report_url: "http://url.org/report",
+    #   return_url: "http://url.org/return"
+    # )
 
     transaction_id = request.transaction_id
 
