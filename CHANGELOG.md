@@ -1,6 +1,9 @@
 # Changelog
 
-- **TBA**: version 1.0.4
+- **TBA**: version 1.0.5
+
+- **2 July 2013**: version 1.0.4
+    - Rails 4 support
 
 - **25 June 2013**: version 1.0.3
     - Make Nokogiri version less restrictive by [@tijmenb](https://github.com/tijmenb)
