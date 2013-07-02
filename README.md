@@ -1,6 +1,6 @@
-# Ideal Mollie (ideal-mollie) 
-[![Gem Version](https://badge.fury.io/rb/ideal-mollie.png)][gemversion] 
-[![Build Status](https://secure.travis-ci.org/manuelvanrijn/ideal-mollie.png?branch=master)][travis] 
+# Ideal Mollie (ideal-mollie)
+[![Gem Version](https://badge.fury.io/rb/ideal-mollie.png)][gemversion]
+[![Build Status](https://secure.travis-ci.org/manuelvanrijn/ideal-mollie.png?branch=master)][travis]
 [![Coverage Status](https://coveralls.io/repos/manuelvanrijn/ideal-mollie/badge.png?branch=coveralls)][coveralls]
 
 [gemversion]: http://badge.fury.io/rb/ideal-mollie
@@ -25,13 +25,6 @@ Or you could add the gem into your `Gemfile`.
 
 ```ruby
 gem 'ideal-mollie'
-```
-
-Finally, if you don’t dig any of that gemming that’s so popular nowadays, you can install it as a plugin;
-
-```
-cd vendor/plugins
-git clone --depth 1 git://github.com/manuelvanrijn/ideal-mollie.git ideal-mollie
 ```
 
 ### Configuration
