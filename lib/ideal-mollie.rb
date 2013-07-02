@@ -6,7 +6,7 @@ require "multi_xml"
 # Files
 require "ideal-mollie/bank"
 require "ideal-mollie/config"
-require "ideal-mollie/engine" if defined?(Rails) && Rails::VERSION::MAJOR == 3
+require "ideal-mollie/engine" if defined?(Rails) && Rails::VERSION::MAJOR.to_i >= 3
 require "ideal-mollie/ideal_exception"
 require "ideal-mollie/order"
 require "ideal-mollie/order_result"
