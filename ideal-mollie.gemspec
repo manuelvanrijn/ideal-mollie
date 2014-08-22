@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
+  s.post_install_message = "DEPRACATION WARNING: IDEAL-MOLLIE isn't maintained anymore. Please upgrade to https://github.com/mollie/mollie-api-ruby"
+
   s.add_development_dependency "rspec"
   s.add_development_dependency "vcr"
   s.add_development_dependency "fakeweb"

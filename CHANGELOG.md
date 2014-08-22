@@ -1,6 +1,7 @@
 # Changelog
 
-- **TBA**: version 1.0.5
+- **22 August 2014**: version 1.0.5
+    - Final release with deprication message
 
 - **2 July 2013**: version 1.0.4
     - Rails 4 support
